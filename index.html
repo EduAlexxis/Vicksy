@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicksy - Your Academic Companion</title>
+    <style>
+        :root {
+            /* Brand Colors derived from your App Coordinator */
+            --primary-blue: #334DFF;
+            --primary-purple: #8033CC;
+            --primary-pink: #E66699;
+            --bg-color: #FAFAFA;
+            --text-main: #1A1A1A;
+            --text-secondary: #666666;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(51, 77, 255, 0.05) 0%, rgba(250, 250, 250, 0) 70%);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(51, 77, 255, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(51, 77, 255, 0.4);
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 12px;
+            border-radius: 16px;
+            background: rgba(51, 77, 255, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Privacy Policy Section */
+        .privacy-section {
+            background: #fff;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .privacy-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .privacy-container h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .privacy-content h3 {
+            font-size: 1.2rem;
+            margin: 25px 0 10px 0;
+            color: var(--text-main);
+        }
+
+        .privacy-content p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .privacy-content ul {
+            margin-left: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .privacy-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .copyright {
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero { padding: 80px 20px; }
+            .nav-links { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Vicksy</div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#download" style="color: var(--primary-blue); font-weight: 600;">Download</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="download">
+        <h1>Your Academic Companion.</h1>
+        <p>Organize your classes, track your homework, and master your schedule with Vicksy. The modern way to stay ahead in school.</p>
+        <a href="#" class="cta-button">Download on App Store</a>
+        <div style="margin-top: 20px; font-size: 0.9rem; color: #999;">Requires iOS 17.0+</div>
+    </header>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <div class="icon">📅</div>
+            <h3>Smart Schedule</h3>
+            <p>Visualize your day with a beautiful, color-coded timeline. See what's happening now, next, and later.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📝</div>
+            <h3>Homework Tracker</h3>
+            <p>Never miss a deadline. Track assignments, mark them as complete, and get notified before they are due.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">☁️</div>
+            <h3>iCloud Sync</h3>
+            <p>Seamlessly sync your academic life across your iPhone and iPad. Your data is always up to date.</p>
+        </div>
+    </section>
+
+    <section class="privacy-section" id="privacy">
+        <div class="privacy-container">
+            <h2>Privacy Policy</h2>
+            <div class="privacy-content">
+                <p>Last updated: December 2025</p>
+                <p>At Vicksy, we believe your academic data belongs to you. This Privacy Policy explains how we handle your information.</p>
+
+                <h3>1. Data Collection</h3>
+                <p>Vicksy is designed to be private by default. We do not collect, sell, or share your personal data with third parties.</p>
+                <ul>
+                    <li><strong>Local Storage:</strong> Your classes, homework, and grades are stored locally on your device.</li>
+                    <li><strong>iCloud Sync:</strong> If enabled, your data is synced securely using Apple's CloudKit. We (the developers) do not have access to this data; it is encrypted by Apple and accessible only by you.</li>
+                </ul>
+
+                <h3>2. Notifications</h3>
+                <p>We use local notifications to remind you of upcoming classes and due assignments. These notifications are generated on your device and are not sent to any external server.</p>
+
+                <h3>3. No Tracking</h3>
+                <p>Vicksy does not use any third-party analytics frameworks, advertising SDKs, or tracking cookies. You are not being tracked.</p>
+
+                <h3>4. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at support@vicksyapp.com.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>Vicksy</div>
+        <div class="copyright">© 2025 Vicksy. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
